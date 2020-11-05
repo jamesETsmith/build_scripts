@@ -5,4 +5,4 @@ jobs:
     - os: osx
       name: install_llvm
       language: generic
-      script: ./osx/install_llvm.sh
+      script: sh osx/install_llvm.sh
