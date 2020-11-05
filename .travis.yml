@@ -1,8 +1,0 @@
-language: python
-
-jobs:
-  include:
-    - os: osx
-      name: install_llvm
-      language: generic
-      script: sh osx/install_llvm.sh
