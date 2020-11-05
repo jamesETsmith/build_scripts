@@ -1,11 +1,12 @@
 #!/bin/bash
 
 # Get prereqs
-pip install cmake ninja
+python -m pip install cmake ninja
 
 # Test that pip install modules are in $PATH
-cmake --version
-ninja --version
+echo "Testing that pip installed the dependencies in the PATH"
+cmake --version && which cmake
+ninja --version && which ninja
 
 # Get sources
 git clone https://github.com/llvm/llvm-project.git
