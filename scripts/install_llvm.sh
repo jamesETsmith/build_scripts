@@ -1,12 +1,19 @@
 #!/bin/bash
 
+#
 # Get prereqs
-python -m pip install cmake ninja
+#
 
-# Test that pip install modules are in $PATH
-echo "Testing that pip installed the dependencies in the PATH"
-cmake --version && which cmake
-ninja --version && which ninja
+FILE=/etc/os-release
+if test -f "$FILE"; then
+    echo "$FILE exists. We're probably on a Linux system."
+    sudo apt-get install -y cmake ninja
+else 
+    echo "$FILE does not exist. We're probably not on Linux."
+    python -m pip install cmake ninja
+    cmake --version && which cmake
+    ninja --version && which ninja
+fi
 
 # Get sources
 git clone https://github.com/llvm/llvm-project.git
