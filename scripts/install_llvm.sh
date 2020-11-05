@@ -7,6 +7,7 @@
 FILE=/etc/os-release
 if test -f "$FILE"; then
     echo "$FILE exists. We're probably on a Linux system."
+    sudo apt-get update -y
     sudo apt-get install -y cmake ninja
 else 
     echo "$FILE does not exist. We're probably not on Linux."
